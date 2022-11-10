@@ -110,7 +110,7 @@ jobs:
           go-version: v1.17
       - run: make build
       - run: ARTIFACT_DIR=/tmp/e2e E2E_PARALLELISM=2 make test-e2e
-      - uses: cytopia/upload-artifact-retry-action@v0.1.2
+      - uses: cytopia/upload-artifact-retry-action@v0.1.6
         if: ${{ always() }}
         with:
           name: e2e
@@ -126,7 +126,7 @@ jobs:
           go-version: v1.17
       - run: make build
       - run: ARTIFACT_DIR=/tmp/e2e COUNT=5 E2E_PARALLELISM=2 make test-e2e
-      - uses: cytopia/upload-artifact-retry-action@v0.1.2
+      - uses: cytopia/upload-artifact-retry-action@v0.1.6
         if: ${{ always() }}
         with:
           name: e2e-multiiple-runs
@@ -172,7 +172,7 @@ jobs:
           kill $(cat /tmp/kcp.pid) || true
           wait $(cat /tmp/kcp.pid) || true
 
-      - uses: cytopia/upload-artifact-retry-action@v0.1.2
+      - uses: cytopia/upload-artifact-retry-action@v0.1.6
         if: ${{ always() }}
         with:
           name: e2e-shared-server
